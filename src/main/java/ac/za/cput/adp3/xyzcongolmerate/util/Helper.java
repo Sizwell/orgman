@@ -14,13 +14,19 @@ public class Helper {
 
     public static String getSuffixFromClassName(Class<?> aClass) {
         String className = getClassName(aClass);
-        throw new UnsupportedOperationException("Not yet supported!");
-        /**
-         * Your implementation goes here
-         *
-         * INSTRUCTION
-         * 1. Remove line 17 [throw new UnsupportedOperationException("Not yet supported!");]
-         * 2. Get the capitalized letter(s) from the className and return it.
-         */
+
+
+        final StringBuilder builder = new StringBuilder();
+        for (final char cName : className.toCharArray())
+            if(Character.isUpperCase(cName))
+                builder.append(cName);
+            return builder.toString();
+
+      /*  char cName = className.charAt(className.toUpperCase().length() - 1);
+        String clsName = String.valueOf(cName);
+
+        return clsName; */
     }
+
+
 }

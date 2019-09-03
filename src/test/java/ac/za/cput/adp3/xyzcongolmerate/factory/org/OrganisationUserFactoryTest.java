@@ -1,23 +1,33 @@
 package ac.za.cput.adp3.xyzcongolmerate.factory.org;
 
+import ac.za.cput.adp3.xyzcongolmerate.domain.org.OrganisationUser;
+import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 public class OrganisationUserFactoryTest {
 
-    //TODO: implement method body ONLY!
+    OrganisationUser organisationUser;
+    OrganisationUser organisationUserSecond;
+
+    @Before
+    public void setUp() throws Exception {
+        organisationUser = OrganisationUserFactory.buildOrganisationUser("SDJK676U", "sizwe@org.co.za");
+        organisationUserSecond = OrganisationUserFactory.buildOrganisationUser("BTX-F5X", "myOrg@org.co.za");
+    }
+
     @Test
     public void buildOrganisationUser() {
-        throw new UnsupportedOperationException("Not supported yet.");
-        /**
-         * Your implementation goes here
-         *
-         * INSTRUCTION
-         * 1. Remove line [//TODO: implement method body ONLY!]
-         * 1. Remove line [throw new UnsupportedOperationException("Not yet supported.");]
-         * 2. Test the OrganisationUserFactory class
-         * 3. Assert that the an object is created.
-         */
+
+        Assert.assertEquals(organisationUserSecond.getOrgCode(), "BTX-F5X", "BTX-F5X");
+        System.out.println("Organization 1 Code: " + organisationUser.getOrgCode());
+    }
+
+    @Test
+    public void getOrganizationCode()
+    {
+        Assert.assertNotNull(organisationUser.getOrgCode());
     }
 }

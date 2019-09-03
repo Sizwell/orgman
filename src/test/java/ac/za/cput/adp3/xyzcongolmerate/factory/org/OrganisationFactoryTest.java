@@ -1,23 +1,46 @@
 package ac.za.cput.adp3.xyzcongolmerate.factory.org;
 
+import ac.za.cput.adp3.xyzcongolmerate.domain.org.Organisation;
+import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 public class OrganisationFactoryTest {
 
-    //TODO: implement method body ONLY!
+    Organisation organisation;
+    Organisation organisationSecond;
+
+    @Before
+    public void setUp() throws Exception {
+        this.organisation = OrganisationFactory.buildOrganisation("ABC Incorporation");
+        this.organisationSecond = OrganisationFactory.buildOrganisation("XYZ Organization");
+    }
+
     @Test
     public void buildOrganisation() {
-        throw new UnsupportedOperationException("Not supported yet.");
-        /**
-         * Your implementation goes here
-         *
-         * INSTRUCTION
-         * 1. Remove line [//TODO: implement method body ONLY!]
-         * 2. Remove line [throw new UnsupportedOperationException("Not yet supported.");]
-         * 3. Test the OrganisationFactory class
-         * 4. Assert that the id is generated.
-         */
+
+        Assert.assertEquals(organisation.getOrgName(), "XYZ Organization", "ABC Incorporation");
+    }
+
+    @Test
+    public void nameNotSame()
+    {
+        Assert.assertNotEquals(organisation, organisationSecond);
+        if(organisation.getOrgName().equals(organisationSecond))
+        {
+            System.err.println("Organization has same name");
+        }
+        else{
+            System.out.println("Organizations differ");
+        }
+    }
+
+    @Test
+    public void getOrganizationCode()
+    {
+        Assert.assertNotNull(organisation.getOrgCode());
+        System.out.println("Organization name " + organisation.getOrgName() + "\nOrganization Code " + organisation.getOrgCode());
     }
 }
